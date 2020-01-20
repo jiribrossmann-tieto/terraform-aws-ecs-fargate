@@ -149,3 +149,12 @@ variable "stop_timeout" {
   description = "Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own. On Fargate the maximum value is 120 seconds."
   default     = 30
 }
+
+variable "task_container_secrets" {
+  default     = []
+  description = "List of container secrets."
+  type        = list(object({
+    name      = string
+    valueFrom = string
+  }))
+}
