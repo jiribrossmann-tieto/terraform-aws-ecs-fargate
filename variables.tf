@@ -123,6 +123,11 @@ variable "repository_credentials_kms_key" {
   description = "key id, key ARN, alias name or alias ARN of the key that encrypted the repository credentials"
 }
 
+variable "task_container_secrets" {
+  description = "Map of container secrets."
+  default     = []
+}
+
 locals {
   # if the variable is set, create the fragment based on the variable value
   # if not, just return a empty string to not mess up the json
