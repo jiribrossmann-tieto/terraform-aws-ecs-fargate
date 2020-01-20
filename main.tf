@@ -130,9 +130,7 @@ resource "aws_ecs_task_definition" "task" {
             "awslogs-stream-prefix": "container"
         }
     },
-    %{if var.task_container_secrets != ""~}
-    "secrets": ${jsonencode(var.task_container_secrets)},
-    %{~endif}
+    "secrets": ${jsonencode("${var.task_container_secrets == [] ? [] : var.task_container_secrets}")},
     "command": ${jsonencode(var.task_container_command)},
     "environment": ${jsonencode(data.null_data_source.task_environment.*.outputs)}
 }]
