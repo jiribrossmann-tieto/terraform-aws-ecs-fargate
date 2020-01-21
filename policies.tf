@@ -43,6 +43,7 @@ data "aws_iam_policy_document" "task_execution_permissions" {
       "ecr:BatchGetImage",
       "logs:CreateLogStream",
       "logs:PutLogEvents",
+      "ssm:GetParameters",
     ]
   }
 }
